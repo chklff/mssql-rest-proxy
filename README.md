@@ -54,12 +54,24 @@ npm start
 - **Method:** `GET`
 - **Description:** Tests the connection to the database and returns a list of available tables.
 
+```bash
+  curl --location --request GET 'http://yourserver:5478/test-db'
+```
+
 #### Execute Query
 - **Endpoint:** `/query`
 - **Method:** `POST`
 - **Body:** `{ "sql": "your SQL query here" }`
 - **Content-Type:** `application/json`
 - **Description:** Executes the provided SQL query and returns the result.
+
+```bash
+  curl --location --request POST 'http://yourserver:5478/query' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "sql": "SELECT * FROM your_table;"
+  }'
+```
 
 ## Security and Best Practices
 - Never expose sensitive database credentials.
