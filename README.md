@@ -83,4 +83,4 @@ npm start
 Contributions to this project are welcome. Please fork the repository and submit a pull request.
 
 ## License
-Specify your project's license here.
+MIT
