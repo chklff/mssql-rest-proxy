@@ -16,3 +16,6 @@ MSSQL REST Proxy is a Node.js application providing a RESTful API interface for 
 ## Installation
 
 ### Clone the Repository
+git clone [[your-repo-url](https://github.com/chklff/mssql-rest-proxy.git)https://github.com/chklff/mssql-rest-proxy.git]
+cd [your-repo-directory]
+
