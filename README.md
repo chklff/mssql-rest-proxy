@@ -1,3 +1,4 @@
+
 # MSSQL REST Proxy
 
 ## Overview
@@ -16,6 +17,58 @@ MSSQL REST Proxy is a Node.js application providing a RESTful API interface for 
 ## Installation
 
 ### Clone the Repository
-git clone [[your-repo-url](https://github.com/chklff/mssql-rest-proxy.git)https://github.com/chklff/mssql-rest-proxy.git]
+```
+git clone [your-repo-url]
 cd [your-repo-directory]
+```
 
+### Setting Up Environment Variables
+Create a `.env` file in the root directory with the following content:
+
+```
+DB_USER=yourDatabaseUsername
+DB_PASSWORD=yourDatabasePassword
+DB_SERVER=yourDatabaseServer
+DB_DATABASE=yourDatabaseName
+DB_PORT=yourDatabasePort
+PORT=applicationPort
+TRUST_SERVER=booleanValue
+```
+
+### Install Dependencies
+```
+npm install
+```
+
+## Usage
+
+### Starting the Server
+```
+npm start
+```
+
+### API Endpoints
+
+#### Test Database Connection
+- **Endpoint:** `/test-db`
+- **Method:** `GET`
+- **Description:** Tests the connection to the database and returns a list of available tables.
+
+#### Execute Query
+- **Endpoint:** `/query`
+- **Method:** `POST`
+- **Body:** `{ "sql": "your SQL query here" }`
+- **Content-Type:** `application/json`
+- **Description:** Executes the provided SQL query and returns the result.
+
+## Security and Best Practices
+- Never expose sensitive database credentials.
+- Use environment variables for configuration.
+- Employ parameterized queries to prevent SQL injection.
+- This API should be used in a secure environment, as it can execute arbitrary SQL queries.
+
+## Contributing
+Contributions to this project are welcome. Please fork the repository and submit a pull request.
+
+## License
+Specify your project's license here.
