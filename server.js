@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const sql = require('mssql');
+const fs = require('fs');
 const app = express();
 app.use(express.json());
 
@@ -9,9 +10,16 @@ const dbConfig = {
     password: process.env.DB_PASSWORD,
     server: process.env.DB_SERVER,
     database: process.env.DB_DATABASE,
+    port:Number(process.env.DB_PORT),
     options: {
-        encrypt: true,
-        trustServerCertificate: process.env.TRUST_SERVER === 'true'
+        encrypt: true, 
+        trustServerCertificate: process.env.TRUST_SERVER === 'true',
+        // cryptoCredentialsDetails: {
+        //     minVersion: 'TLSv1.2', // Specify the minimum TLS version (adjust as needed)
+        //     cert: fs.readFileSync('path/to/certificate.pem'), // Path to your certificate file
+        //     key: fs.readFileSync('path/to/private-key.key'), // Path to your private key file
+        // },
+        enableArithAbort: true, // Enable ArithAbort for compatibility // change to true for local development / self-signed certificates
     }
 };
 
