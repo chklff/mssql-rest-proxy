@@ -10,7 +10,7 @@ MSSQL REST Proxy is a Node.js application providing a RESTful API interface for 
 - Support for a variety of SQL operations: SELECT, INSERT, UPDATE, DELETE.
 
 ## Prerequisites
-- Node.js (Version X or later)
+- Node.js (Version 16 or later)
 - Microsoft SQL Server (Version Y or later)
 - Access to modify environment variables for secure credential storage.
 
@@ -42,10 +42,21 @@ npm install
 
 ## Usage
 
-### Starting the Server
+### Running the Application
+
+#### With Docker Compose (Recommended)
+For a smooth and hassle-free setup, run the application using Docker Compose. This method automatically sets up the environment, builds the Docker image (if not already built), and starts the application. Run:
+```bash
+docker compose up --build
+```
+After running this command, your MSSQL REST Proxy will be available at `http://localhost:5478`.
+
+#### With Node.js
+If you prefer to start the server manually using Node.js, run:
 ```
 npm start
 ```
+This will launch the MSSQL REST Proxy at `http://localhost:5478`.
 
 ### API Endpoints
 
@@ -66,9 +77,7 @@ npm start
 - **Description:** Executes the provided SQL query and returns the result.
 
 ```bash
-  curl --location --request POST 'http://yourserver:5478/query' \
---header 'Content-Type: application/json' \
---data-raw '{
+  curl --location --request POST 'http://yourserver:5478/query' --header 'Content-Type: application/json' --data-raw '{
     "sql": "SELECT * FROM your_table;"
   }'
 ```
